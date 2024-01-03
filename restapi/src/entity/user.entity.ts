@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
 
-@Entity()
+@Entity("User", {synchronize : true})
 export class User {
 
     @PrimaryGeneratedColumn()
@@ -25,3 +25,5 @@ export class User {
     age: number
 
 }
+
+export default User
