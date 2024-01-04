@@ -20,10 +20,6 @@ export class User {
 
     @Column()
     address: string
-
-    @Column()
-    age: number
-
 }
 
 export default User

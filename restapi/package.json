@@ -4,21 +4,23 @@
   "description": "Awesome project developed with TypeORM.",
   "type": "commonjs",
   "devDependencies": {
-    "@types/node": "^16.11.10",
-    "ts-node": "^10.7.0",
-    "typescript": "4.5.2"
+    "@types/node": "^16.18.69",
+    "nodemon": "^3.0.2",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.3.3"
   },
   "dependencies": {
     "body-parser": "^1.19.1",
     "express": "^4.18.2",
-    "nodemon": "^3.0.2",
     "pg": "^8.4.0",
     "reflect-metadata": "^0.1.13",
     "typeorm": "0.3.17"
   },
   "scripts": {
     "start": "ts-node src/index.ts",
-    "dev": "nodemon --watch 'src/**/*.ts' --exec ts-node src/index.ts",
-    "typeorm": "typeorm-ts-node-commonjs"
+    "dev": "nodemon --watch src --exec ts-node src/index.ts",
+    "typeorm": "typeorm-ts-node-commonjs",
+    "test": "ts-mocha"
   }
 }
