@@ -19,7 +19,7 @@ describe('UserController', () => {
     // await getConnection().close(); // Close the database connection
   });
 
-  describe('all', () => {
+  describe('Get All Users', () => {
     it('should return a list of users with pagination', async () => {
       const request = { query: { page: 1, limit: 10 } };
       const response = {
@@ -36,7 +36,7 @@ describe('UserController', () => {
     });
   });
 
-  describe('one', () => {
+  describe('Get One Users', () => {
     it('should return a single user by ID', async () => {
       const request = { params: { id: 1 } };
       const response = {
