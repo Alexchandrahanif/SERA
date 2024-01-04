@@ -2,10 +2,15 @@ import { AppDataSource } from '../data-source'
 import { NextFunction, Request, Response } from 'express'
 import { User } from '../entity/user.entity'
 import EmailService from "../Emailservice"
+import EmailConsumer from '../EmailConsumer'
+
+
 
 export class UserController {
   private userRepository = AppDataSource.getRepository(User)
   private emailService = new EmailService(); 
+  private emailConsumer = new EmailConsumer(); 
+
 
   async all(request: Request, response: Response, next: NextFunction) {
     const { page = 1, limit = 10 } = request.query

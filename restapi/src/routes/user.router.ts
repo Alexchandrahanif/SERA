@@ -7,6 +7,7 @@ const userController = new UserController()
 userRouter.get('/', async (req, res, next) => {
   await userController.all(req, res, next)
 })
+
 userRouter.get('/:id', async (req, res, next) => {
   await userController.one(req, res, next)
 })

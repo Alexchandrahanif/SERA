@@ -53,8 +53,6 @@ describe('UserController', () => {
     });
   });
 
-  // Add similar describe blocks for other methods (save, edit, remove, sendEmail)
-
   describe('sendEmail', () => {
     it('should send an email to the user', async () => {
       const request = { body: { userId: 1, message: 'Test message' } };
