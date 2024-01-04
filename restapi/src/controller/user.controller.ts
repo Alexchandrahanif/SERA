@@ -5,7 +5,7 @@ import EmailService from "../Emailservice"
 
 export class UserController {
   private userRepository = AppDataSource.getRepository(User)
-  private emailService = new EmailService();
+  private emailService = new EmailService(); 
 
   async all(request: Request, response: Response, next: NextFunction) {
     const { page = 1, limit = 10 } = request.query
@@ -131,7 +131,6 @@ export class UserController {
     try {
       const { userId, message } = request.body;
 
-      // Dapatkan informasi user berdasarkan ID
       const user = await this.userRepository.findOne({
         where: { id: userId },
       });
@@ -151,4 +150,5 @@ export class UserController {
       console.error(error);
     }
   }
+ 
 }

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "types": ["node", "chai"],
+    "types": ["node", "chai", "mocha"],
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "lib": ["es5", "es6"],

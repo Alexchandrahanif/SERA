@@ -26,6 +26,4 @@ userRouter.delete('/:id', async (req, res, next) => {
 userRouter.post('/sendEmail', async (req, res, next) => {
   await userController.sendEmail(req, res, next)
 })
-// userRouter.post('/send-email', userController.sendEmail.bind(userController))
-
 export default userRouter
