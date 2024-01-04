@@ -1,9 +1,11 @@
 import { AppDataSource } from '../data-source'
 import { NextFunction, Request, Response } from 'express'
 import { User } from '../entity/user.entity'
+import EmailService from "../Emailservice"
 
 export class UserController {
   private userRepository = AppDataSource.getRepository(User)
+  private emailService = new EmailService();
 
   async all(request: Request, response: Response, next: NextFunction) {
     const { page = 1, limit = 10 } = request.query
@@ -122,6 +124,31 @@ export class UserController {
       return response.json({ message: 'Successfully Deleting User Data' })
     } catch (error) {
       console.error(error)
+    }
+  }
+
+  async sendEmail(request: Request, response: Response, next: NextFunction) {
+    try {
+      const { userId, message } = request.body;
+
+      // Dapatkan informasi user berdasarkan ID
+      const user = await this.userRepository.findOne({
+        where: { id: userId },
+      });
+
+      if (!user) {
+        return response.status(404).json({ error: 'User not found' });
+      }
+
+      await this.emailService.sendEmail(user.email, message);
+
+      return response.status(200).json({
+        message: 'Email sent successfully',
+        userEmail: user.email,
+        emailMessage: message,
+      });
+    } catch (error) {
+      console.error(error);
     }
   }
 }
